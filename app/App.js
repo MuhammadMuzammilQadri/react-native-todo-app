@@ -48,7 +48,7 @@ class App extends Component {
             inputValue={inputValue}
             inputChange={text => this.inputChange(text)}
           />
-          <Button submitTodo={() => this.submitTodo()} />
+          <Button submitTodo={this.submitTodo} />
         </ScrollView>
       </View>
     );
