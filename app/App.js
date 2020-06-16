@@ -38,6 +38,24 @@ class App extends Component {
     });
   }
 
+  // eslint-disable-next-line no-shadow
+  deleteTodo(todoIndex) {
+    let {todos} = this.state;
+    todos = todos.filter(todo => todo.todoIndex !== todoIndex);
+    this.setState({todos});
+  }
+
+  // eslint-disable-next-line no-shadow
+  toggleComplete(todoIndex) {
+    let {todos} = this.state;
+    todos.forEach(todo => {
+      if (todo.todoIndex === todoIndex) {
+        todo.complete = !todo.complete;
+      }
+    });
+    this.setState({todos});
+  }
+
   render() {
     const {inputValue, todos} = this.state;
     console.log('State from render(): ', this.state);
@@ -50,7 +68,11 @@ class App extends Component {
             inputValue={inputValue}
             inputChange={text => this.inputChange(text)}
           />
-          <TodoList todos={todos} />
+          <TodoList
+            toggleComplete={todoIndex => this.toggleComplete(todoIndex)}
+            deleteTodo={todoIndex => this.deleteTodo(todoIndex)}
+            todos={todos}
+          />
           <Button submitTodo={() => this.submitTodo()} />
         </ScrollView>
       </View>
