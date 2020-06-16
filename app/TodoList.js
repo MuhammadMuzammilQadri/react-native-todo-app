@@ -1,9 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import Todo from './Todo';
 
-const TodoList = ({todos, toggleComplete, deleteTodo}) => {
-  todos = todos.map((todo, i) => {
+const TodoList = ({todos, toggleComplete, deleteTodo, type}) => {
+  const getVisibleTodos = (_todos, _type) => {
+    switch (_type) {
+      case 'All':
+        return _todos;
+      case 'Complete':
+        return _todos.filter(t => t.complete);
+      case 'Active':
+        return _todos.filter(t => !t.complete);
+    }
+  };
+  todos = getVisibleTodos(todos, type)?.map((todo, i) => {
     return (
       <Todo
         key={todo.todoIndex}

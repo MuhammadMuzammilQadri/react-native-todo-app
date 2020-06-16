@@ -4,6 +4,7 @@ import Heading from './Heading';
 import Input from './Input';
 import Button from './Button';
 import TodoList from './TodoList';
+import TapBar from './TapBar';
 
 let todoIndex = 0;
 
@@ -15,6 +16,11 @@ class App extends Component {
       todos: [],
       type: 'All',
     };
+  }
+
+  setType(type) {
+    console.log('Type set to: ' + type);
+    this.setState({type});
   }
 
   inputChange(inputValue) {
@@ -58,7 +64,7 @@ class App extends Component {
   }
 
   render() {
-    const {inputValue, todos} = this.state;
+    const {inputValue, todos, type} = this.state;
     return (
       <View style={styles.container}>
         <ScrollView keyboardShouldPersistTaps="always" style={styles.content}>
@@ -71,9 +77,11 @@ class App extends Component {
             toggleComplete={todoIndex => this.toggleComplete(todoIndex)}
             deleteTodo={todoIndex => this.deleteTodo(todoIndex)}
             todos={todos}
+            type={type}
           />
           <Button submitTodo={() => this.submitTodo()} />
         </ScrollView>
+        <TapBar type={type} setType={type => this.setType(type)} />
       </View>
     );
   }
