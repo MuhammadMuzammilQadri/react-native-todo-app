@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   inputChange(inputValue) {
-    console.log('Input Value: ', inputValue);
     this.setState({inputValue});
   }
 
@@ -40,6 +39,7 @@ class App extends Component {
 
   // eslint-disable-next-line no-shadow
   deleteTodo(todoIndex) {
+    console.log('Todo deleted at index: ' + todoIndex);
     let {todos} = this.state;
     todos = todos.filter(todo => todo.todoIndex !== todoIndex);
     this.setState({todos});
@@ -51,6 +51,7 @@ class App extends Component {
     todos.forEach(todo => {
       if (todo.todoIndex === todoIndex) {
         todo.complete = !todo.complete;
+        console.log('Todo completed: ' + todo.title);
       }
     });
     this.setState({todos});
@@ -58,8 +59,6 @@ class App extends Component {
 
   render() {
     const {inputValue, todos} = this.state;
-    console.log('State from render(): ', this.state);
-    console.log('inputValue from render(): ', inputValue);
     return (
       <View style={styles.container}>
         <ScrollView keyboardShouldPersistTaps="always" style={styles.content}>

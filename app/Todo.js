@@ -8,7 +8,7 @@ const Todo = ({todo, toggleComplete, deleteTodo}) => (
     <View style={styles.buttons}>
       <TodoButton
         name="Done"
-        complete={toggleComplete}
+        complete={todo.complete}
         onPress={() => toggleComplete(todo.todoIndex)}
       />
       <TodoButton name="Delete" onPress={() => deleteTodo(todo.todoIndex)} />
