@@ -6,7 +6,7 @@ type Props = {};
 export const Heading = (props: Props) => {
   return (
     <View style={styles.header}>
-      <Text style={styles.headerText}>todos</Text>
+      <Text stylgite={styles.headerText}>todos</Text>
     </View>
   );
 };
@@ -22,3 +22,5 @@ const styles = StyleSheet.create({
     fontWeight: '100',
   },
 });
+
+export default Heading;
