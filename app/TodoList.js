@@ -13,6 +13,7 @@ const TodoList = ({todos, toggleComplete, deleteTodo, type}) => {
         return _todos.filter(t => !t.complete);
     }
   };
+
   todos = getVisibleTodos(todos, type)?.map((todo, i) => {
     return (
       <Todo

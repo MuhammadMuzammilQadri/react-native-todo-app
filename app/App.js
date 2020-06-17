@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, ScrollView, StyleSheet} from 'react-native';
 import Heading from './Heading';
 import Input from './Input';
@@ -8,7 +8,7 @@ import TapBar from './TapBar';
 
 let todoIndex = 0;
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = {

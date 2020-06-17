@@ -3,7 +3,7 @@ import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 type Props = {};
-export const Heading = (props: Props) => {
+export const Test = (props: Props) => {
   return (
     <View style={styles.header}>
       <Text style={styles.headerText}>todos</Text>
