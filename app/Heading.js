@@ -2,8 +2,7 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-type Props = {};
-export const Heading = (props: Props) => {
+export const Heading = () => {
   return (
     <View style={styles.header}>
       <Text stylgite={styles.headerText}>todos</Text>
